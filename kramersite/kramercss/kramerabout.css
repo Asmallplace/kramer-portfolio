@@ -1,0 +1,142 @@
+/* --- Aboutページ用のレイアウト調整 --- */
+
+    body{
+    background-color: #f5f5f5;
+}
+
+/* 1. 最初は透明で、少し下に下げておく */
+.bout-container, .photographer-photo {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease, transform 1.2s ease; /* 1.2秒かけて変化 */
+}
+
+/* 2. このクラスがついたら表示される */
+.is-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+h2{
+    font-size:40px;
+    color: #363636;
+}
+
+.container.about-container {
+    display: flex;       /* 子要素を横並びにする */
+    width: 100%;        /* 全体の幅を確保 */
+    min-height: 100vh;   /* 画面いっぱいの高さを確保 */
+    align-items: center; /* 中央 */
+    max-width: 1200px; /* ここでお好みの幅にギュッと絞ります */
+    margin: 0 auto;     /* 絞った要素を画面の真ん中に置く魔法の呪文 */
+}
+
+/* 左右の比率を 4:6 に変更 */
+.left-content.about-page {
+    width: 50%; /* 左側 50% */
+    padding: 0 0 0 2em; /* 6emから少し減らしてバランスを調整 */
+    display: flex;
+    justify-content: center; /* 写真を40%の領域内でも真ん中に */
+}
+
+.right-content.about-right {
+    width: 50%; /* 右側 60% */
+    padding: 80px 8%; /* 右側の余白を少し広めに取ると綺麗です */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* 左側の写真（40%の幅いっぱいに） */
+.photographer-photo {
+    width: 100%;
+    max-width: 400px; /* 写真が大きくなりすぎないように制限 */
+    height: auto; /* 画面の高さぴったりに固定 */
+    position: sticky; /* スクロールしても写真が動かないようにする場合 */
+    top: 0;
+}
+
+.photographer-photo img {
+    width: 100%;/* 親の80%に対して100% */
+    height: auto;
+    max-height: 80vh; /* 縦長になりすぎないよう画面高さの80%に制限 */
+    object-fit: contain; /* 比率を絶対に変えずに枠内に収める */
+}
+
+/* 3つのサンプル画像：40%の領域に合わせてサイズを微調整 */
+.about-gallery {
+    display: flex;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.about-gallery img {
+    /* 3枚並んでも崩れないよう、幅を%指定にするのがおすすめです */
+    width: calc(33.33% - 10px); 
+    aspect-ratio: 1 / 1; /* 正方形を維持 */
+    object-fit: cover;
+    filter: grayscale(20%); /* 少し彩度を落とすと落ち着いた雰囲気になります */
+    transition: 0.3s;
+}
+
+.about-gallery img:hover {
+    filter: grayscale(0%); /* ホバーで色が戻る演出 */
+}
+
+/* 自己紹介テキストのフォント設定 */
+.about-text {
+    margin-top: 20px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 2rem;
+    font-family: 'Times New Roman', serif; /* 本文をセリフ体にすると情緒が出ます */
+
+}
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 2; /* 行間を広げて読みやすく */
+    color: #444;
+    margin-bottom: 1.5em;
+    font-family: 'Times New Roman', serif;
+}
+
+
+/* 画面幅が768px（一般的なスマホ・タブレットの境目）以下の場合 */
+@media screen and (max-width: 768px) {
+    .container.about-container {
+        flex-direction: column; /* 横並びから縦並びに変更 */
+        align-items: center;    /* 中央寄せ */
+        padding: 40px 20px;     /* 上下に少し余白を作る */
+    }
+
+    .left-content.about-page,
+    .right-content.about-right {
+        width: 100%;            /* 横幅をいっぱい（100%）に広げる */
+        padding: 0;             /* PC用の余白をリセット */
+    }
+
+    .left-content.about-page {
+        margin-bottom: 40px;    /* 写真とテキストの間に隙間を作る */
+        display: flex;
+        justify-content: center;
+    }
+
+    .photographer-photo {
+        width: 100%;            /* 写真を画面幅に合わせる */
+        max-width: 300px;       /* スマホで大きくなりすぎないように制限 */
+        position: static;       /* PC用のsticky（固定）を解除 */
+    }
+
+    .about-gallery {
+        gap: 10px;              /* 画像同士の隙間を少し狭く */
+    }
+
+    .about-text p {
+        font-size: 1rem;        /* 文字サイズをスマホ用に少し小さく */
+        line-height: 1.8;
+    }
+}
