@@ -1,0 +1,172 @@
+body{
+    background-color: #f5f5f5;
+}
+/* --- タイトル（H1）の個別設定 --- */
+/* タイトルとメニューを包む箱 */
+.title-area {
+    display: flex;
+    align-items: flex-end; /* 下端で揃える */
+    padding-left: 20%;    /* 左端の基準線 */
+    gap: 40px;            /* タイトルとメニューの間隔 */
+}
+
+h1 {
+    font-size: 45px;
+    margin: 0;
+    padding: 0;           /* title-areaで余白を管理するので0にする */
+    line-height: 1;
+}
+
+/* 横並びメニューの設定 */
+.site-nav ul {
+    display: flex;
+    list-style: none;     /* 点を消す */
+    margin: 0;
+    padding: 0;
+    gap: 20px;            /* メニュー同士の間隔 */
+    padding-bottom: 5px;  /* タイトルのベースラインに微調整して合わせる */
+}
+
+.site-nav a {
+    text-decoration: none;
+    color: #363636;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: opacity 0.3s;
+}
+
+.site-nav a:hover {
+    opacity: 0.5;         /* マウスを乗せると少し薄くなる */
+}
+h1 {
+    /* サイズを大きく */
+    font-size: 45px; /* 2.5remから倍に。好みの大きさに調整してください */
+    color:#363636;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    
+/* 位置の調整 */
+    margin: 0;
+    padding: 0 0 0 0; /* 上の余白を増やし、下を少し空ける */
+    line-height: 1;
+}
+
+/* 「h1」だけより「.left-content h1」の方が点数が高いので勝てる 
+.left-content h1, 
+.left-content .line, 
+.left-content .info-footer, 
+.left-content .main-image {
+    margin-left: 5%; 
+}*/
+
+
+/* 画面全体の分割レイアウト */
+.container {
+display: flex;
+min-height: 100vh;
+        }
+
+ /* 左半分（メインコンテンツ） */
+.left-content {
+width: 50%;
+padding: 20px 0; /* 上下の余白 */
+}
+
+/* 右半分（空白とメニュー） */
+.right-content {
+width: 50%;
+position: relative; /* メニュー配置の基準 */
+}
+
+/* 区切り線（画面の左端から右端まで） */
+.line {
+width: 200%; /* 親要素(50%)の2倍で画面全体をカバー */
+border: none;
+border-top: 1px solid #333;
+border-image: linear-gradient(to right, #000000, #ffffff) 1;
+margin: 20px 0;
+}
+
+
+
+
+/* メイン画像 */
+.main-image {
+width: 100%;
+/*margin-left: 5%; 画像の左幅埋める*/
+display: block;
+}
+/* 画像を包む箱 */
+.image-wrapper {
+    width: 90%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    /* paddingではなくmargin-leftを使う方が計算が狂いません */
+    padding-left:20%; /* H1のpadding-left: 20%と数値を合わせると左端が揃います */
+}
+
+/* figureタグのデフォルト余白を消す */
+.image-wrapper figure {
+    margin: 0;
+    padding: 0;
+}
+
+        /* 画像下のフッターエリア（画面端から端まで広がる想定） */
+        .info-footer {
+            width: 200%; /* 線と同様に右端までカバー */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            font-family:'Times New Roman', Times, serif;
+            font-size:20px;
+            box-sizing: border-box; /* paddingを含めた幅計算 */
+            /* --- ここを追加 --- */
+    position: relative; /* z-indexを有効にするため */
+    z-index: 10;        /* 右側の空白エリア(aside)よりも手前に出す */
+        }
+
+        .name {
+        padding-left: 10%; /* タイトルの位置に合わせる */
+        margin: 0;
+        }
+
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            /* 右半分のエリアの右端に寄せるための調整 */
+            padding-right: 10%; 
+        }
+
+        .footer-right a {
+            text-decoration: none;
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .instagram-icon {
+            font-size: 1.2rem;
+        }
+
+/* ハンバーガーメニュー（簡易版） 
+.hamburger {
+position: absolute;
+top: 40px;
+right: 40px;
+cursor: pointer;
+z-index: 100;
+margin-right:10%;
+}
+.hamburger span {
+display: block;
+width: 30px;
+height: 2px;
+background: #000;
+margin-bottom: 6px;
+}*/

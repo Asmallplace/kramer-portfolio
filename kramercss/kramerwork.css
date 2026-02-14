@@ -1,0 +1,55 @@
+/* Workページ全体のコンテナ */
+
+body{
+     background-color: #f5f5f5;
+}
+
+.work-container {
+    max-width: 1400px; /* Aboutより少し広めにとるとギャラリー感が出ます */
+    margin: 0 auto;
+    padding: 100px 4%;
+}
+
+.page-title {
+    font-family: 'Times New Roman', serif;
+    font-weight: normal;
+    font-size: 1.5rem;
+    margin-bottom: 60px;
+    letter-spacing: 0.1em;
+}
+
+/* ギャラリーの網目（グリッド）設定 */
+.work-grid {
+    display: grid;
+    /* 1列の幅を最低250pxにして、自動で並べる（レスポンシブも自動） */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px; /* 写真同士の隙間。Kanさん風なら少し広めが◎ */
+    list-style: none;
+    padding: 0;
+}
+
+.work-item {
+    position: relative;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.work-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease; /* ホバーで少し動く演出用 */
+}
+
+/* ホバー時の演出：少しズームする */
+.work-item:hover img {
+    transform: scale(1.03);
+}
+
+/* 写真の下にタイトルを入れる場合 */
+.work-info {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    color: #666;
+}
