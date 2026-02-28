@@ -170,3 +170,68 @@ height: 2px;
 background: #000;
 margin-bottom: 6px;
 }*/
+
+
+
+/* 画面幅が768px以下の設定 */
+
+
+@media screen and (max-width: 768px) {
+    /* 1. 左右分割を解除して縦に並べる */
+    .container {
+        flex-direction: column;
+        min-height: auto; /* スマホでは中身に応じた高さにする */
+    }
+
+    /* 2. 各コンテンツの幅を100%にする */
+    .left-content, 
+    .right-content {
+        width: 100%;
+        padding: 0;
+    }
+
+    /* 3. タイトルエリアの調整（左寄せの余白を減らす） */
+    .title-area {
+        padding: 40px 20px 0px; 
+        flex-direction: column; /* タイトルとメニューも縦に並べる */
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    h1 {
+        font-size: 32px; /* スマホに合わせて少し小さく */
+    }
+
+    /* 4. 写真を中央に、幅いっぱいに配置 */
+    .image-wrapper {
+        width: 100%;
+        padding-left: 0; /* PC版の20%をリセット */
+        margin: 20px 0;
+    }
+
+    .main-image {
+        width: 100%;
+        height: auto;
+    }
+
+    /* 5. 区切り線とフッターをスマホの幅に合わせる */
+    .line, 
+    .info-footer {
+        width: 100%; /* 200%から100%に戻す */
+    }
+
+    .info-footer {
+        flex-direction: column; /* 名前とSNSを縦に並べる */
+        gap: 20px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .name {
+        padding-left: 0; /* PC版の余白をリセット */
+    }
+
+    .footer-right {
+        padding-right: 0; /* PC版の余白をリセット */
+    }
+}
